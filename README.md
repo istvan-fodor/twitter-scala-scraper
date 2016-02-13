@@ -15,7 +15,7 @@ The program takes multiple arguments:
 Tweets are saved to a file whose name is derived from the search terms. If you restart the application with the same keywords, it will 
 
 Example command line:
-`java -jar twitter-scraper-jar-with-dependencies.jar —file some_tweets.txt --searchTerms “big data” --consumerKey XYZ --consumerSecret XYZ --accessToken XYZ --accessTokenSecret XYZ`
+`java -jar twitter-scraper-jar-with-dependencies.jar --file some_tweets.txt --searchTerms “big data” --consumerKey XYZ --consumerSecret XYZ --accessToken XYZ --accessTokenSecret XYZ`
 
 You can quit the application by pressing `Ctrl-C`
 

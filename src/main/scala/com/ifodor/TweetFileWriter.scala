@@ -12,29 +12,23 @@ import java.nio.ByteBuffer
 
 case class TweetMessage(status: String)
 
-class TweetFileWriter(filename: String, searchTerms: List[String]) extends Actor with ActorLogging {
+class TweetFileWriter(filename: String) extends Actor with ActorLogging {
 
   val file = new File(filename)
   file.getParentFile.mkdirs
   val fos = new FileOutputStream(file, true)
   val channel = fos.getChannel
-  //file.getParentFile.mkdirs
-  //val writer = new FileWriter(file, true);
 
   def receive = {
     case TweetMessage(status) => {
       channel.write(ByteBuffer.wrap(status.getBytes))
       channel.write(ByteBuffer.wrap("\n".getBytes))
-      //writer.append(status).append("\n")
-      //writer.flush();
     }
   }
 
   override def postStop(): Unit = {
     channel.close()
     fos.close()
-    //writer.flush();
-    //writer.close();
   }
 
 }

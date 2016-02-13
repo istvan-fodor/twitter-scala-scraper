@@ -38,7 +38,7 @@ object TwitterScraperApp {
       }
     }
 
-    val tweetWriter = actorSystem.actorOf(Props(classOf[TweetFileWriter], config.file, config.searchTerms))
+    val tweetWriter = actorSystem.actorOf(Props(classOf[TweetFileWriter], config.file))
     val twitterConfiguration = new ConfigurationBuilder().setOAuthConsumerKey(config.consumerKey).setOAuthConsumerSecret(config.consumerSecret)
       .setOAuthAccessToken(config.accessToken).setOAuthAccessTokenSecret(config.accessTokenSecret).setJSONStoreEnabled(true).build();
     val twitterStream = new TwitterStreamFactory(twitterConfiguration).getInstance()
