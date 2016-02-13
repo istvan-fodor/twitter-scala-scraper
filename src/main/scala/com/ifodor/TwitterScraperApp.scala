@@ -21,6 +21,8 @@ import twitter4j.TwitterStreamFactory
 import twitter4j.conf.Configuration
 import twitter4j.conf.ConfigurationBuilder
 import twitter4j.FilterQuery
+import java.text.SimpleDateFormat
+import java.util.Date
 
 object TwitterScraperApp {
 
@@ -36,7 +38,7 @@ object TwitterScraperApp {
       }
     }
 
-    val tweetWriter = actorSystem.actorOf(Props(classOf[TweetFileWriter], config.targetDirectory, config.searchTerms))
+    val tweetWriter = actorSystem.actorOf(Props(classOf[TweetFileWriter], config.file, config.searchTerms))
     val twitterConfiguration = new ConfigurationBuilder().setOAuthConsumerKey(config.consumerKey).setOAuthConsumerSecret(config.consumerSecret)
       .setOAuthAccessToken(config.accessToken).setOAuthAccessTokenSecret(config.accessTokenSecret).setJSONStoreEnabled(true).build();
     val twitterStream = new TwitterStreamFactory(twitterConfiguration).getInstance()
@@ -53,9 +55,11 @@ object TwitterScraperApp {
     })
   }
 
-  def parseArgs(args: Array[String]): Option[Config] =
+  def parseArgs(args: Array[String]): Option[Config] = {
+    val defaultFile = "./" + new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date()) + "_tweets.txt"
     new CommandLineParser().parse(args,
-      Config(consumerKey = "", consumerSecret = "", accessToken = "", accessTokenSecret = "", targetDirectory = ".", searchTerms = List("twitter")))
+      Config(consumerKey = "", consumerSecret = "", accessToken = "", accessTokenSecret = "", file = defaultFile, searchTerms = List("twitter")))
+  }
 
 }
 

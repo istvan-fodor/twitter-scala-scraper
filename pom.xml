@@ -31,8 +31,10 @@
     <junit.version>4.12</junit.version>
 
     <!-- Default runtime arguments -->
+    <timestamp>${maven.build.timestamp}</timestamp>
+    <maven.build.timestamp.format>yyyy-MM-dd_HH-mm-ss</maven.build.timestamp.format>
     <twitter.searchTerms>twitter,twitter api</twitter.searchTerms>
-    <twitter.targetDirectory>${project.build.directory}</twitter.targetDirectory>
+    <twitter.file>${project.build.directory}/${timestamp}_tweets.txt</twitter.file>
   </properties>
 
   <build>
@@ -92,8 +94,8 @@
               <args>
                 <arg>--searchTerms</arg>
                 <arg>${twitter.searchTerms}</arg>
-                <arg>--targetDirectory</arg>
-                <arg>${twitter.targetDirectory}</arg>
+                <arg>--file</arg>
+                <arg>${twitter.file}</arg>
                 <arg>--consumerKey</arg>
                 <arg>${twitter.consumerKey}</arg>
                 <arg>--consumerSecret</arg>

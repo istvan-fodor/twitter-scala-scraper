@@ -17,7 +17,7 @@ class TweetStatusListener(target: ActorRef) extends StatusListener {
 
   val log = LoggerFactory.getLogger(classOf[TweetStatusListener])
   var counter = BigInt(0)
-  
+
   def onStatus(status: Status): Unit = {
     target ! new TweetMessage(TwitterObjectFactory.getRawJSON(status))
     counter += 1
@@ -25,22 +25,29 @@ class TweetStatusListener(target: ActorRef) extends StatusListener {
   }
 
   def onDeletionNotice(delete: StatusDeletionNotice): Unit = {
+    println()
     log.info("Delete:", delete)
   }
 
   def onException(e: Exception): Unit = {
+    println()
     log.error("An exception occured:", e)
   }
 
   def onStallWarning(stallWarning: StallWarning): Unit = {
+    println()
     log.info("onStallWarning: {}", stallWarning)
   }
 
   def onTrackLimitationNotice(numberOfLimitedStatuses: Int): Unit = {
-    log.info("onTrackLimitationNotice: {}", numberOfLimitedStatuses)
+    println()
+    log.warn("onTrackLimitationNotice: {}", numberOfLimitedStatuses)
+    log.warn("Your search terms are defined too broad and Twitter is limiting your tweet bandwith. Try searching with something more specific.")
+
   }
 
   def onScrubGeo(userId: Long, upToStatusId: Long): Unit = {
+    println()
     log.info("onScrubGeo: {} {}", userId, upToStatusId)
   }
 }

@@ -2,7 +2,7 @@ package com.ifodor
 
 import scopt.OptionParser
 
-case class Config(consumerKey: String, consumerSecret: String, accessToken: String, accessTokenSecret: String, targetDirectory: String, searchTerms: List[String])
+case class Config(consumerKey: String, consumerSecret: String, accessToken: String, accessTokenSecret: String, file: String, searchTerms: List[String])
 
 class CommandLineParser extends OptionParser[Config]("java -jar twitter-scraper-jar-with-dependencies.jar") {
 
@@ -11,12 +11,12 @@ class CommandLineParser extends OptionParser[Config]("java -jar twitter-scraper-
   val accessTokenSysProp = "TWITTER_ACCESS_TOKEN"
   val accessTokenSecretSysProp = "TWITTER_ACCESS_TOKEN_SECRET"
 
-  opt[String]('d', "targetDirectory") action {
-    (arg, c) => c.copy(targetDirectory = arg)
-  }
   opt[String]('t', "searchTerms") required () action {
     (arg, c) => c.copy(searchTerms = arg.split(",").toList)
-  }
+  } text("Search terms/filters. See https://dev.twitter.com/streaming/reference/post/statuses/filter for more")
+  opt[String]('f', "file") action {
+    (arg, c) => c.copy(file = arg)
+  } text("File name for storing tweets, with either relaitve path or absolute. If the file already exists, tweets will be appended at the end")
   opt[String]("consumerKey") required () action {
     (arg, c) =>
       {
