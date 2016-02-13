@@ -15,12 +15,12 @@ The program takes multiple arguments:
 Tweets are saved to a file whose name is derived from the search terms. If you restart the application with the same keywords, it will 
 
 Example command line:
-`java -jar twitter-scraper-jar-with-dependencies.jar --file some_tweets.txt --searchTerms “big data” --consumerKey XYZ --consumerSecret XYZ --accessToken XYZ --accessTokenSecret XYZ`
+`java -jar twitter-scraper-jar-with-dependencies.jar --file some_tweets.txt --searchTerms "big data" --consumerKey XYZ --consumerSecret XYZ --accessToken XYZ --accessTokenSecret XYZ`
 
 You can quit the application by pressing `Ctrl-C`
 
 You can also run directly from maven without building the jar with the following command line:
 
-`mvn scala:run@scrape -Dtwitter.file=target/tweets.txt -Dtwitter.searchTerms=“big data“ -Dtwitter.consumerKey=XYZ -Dtwitter.consumerSecret=XYZ -Dtwitter.accessToken=XYZ -Dtwitter.accessTokenSecret=XYZ`
+`mvn scala:run@scrape -Dtwitter.file=target/tweets.txt -Dtwitter.searchTerms="big data" -Dtwitter.consumerKey=XYZ -Dtwitter.consumerSecret=XYZ -Dtwitter.accessToken=XYZ -Dtwitter.accessTokenSecret=XYZ`
 
 
