@@ -1,8 +1,9 @@
 # twitter-scala-scraper
 
 This is a Scala application that you can use to read tweets off of Twitter. To build from source, you need Java 8 and Maven 3. In the cloned directory build with  `mvn clean install`. After the build finished you can execute twitter-scraper-jar-with-dependencies.jar form the target folder on the command line: 
-`cd target
-java -jar twitter-scraper-jar-with-dependencies.jar`
+
+`cd target`
+`java -jar twitter-scraper-jar-with-dependencies.jar`
 
 The program takes multiple arguments:
 - `--file <file_name>`: target directory for tweets. If omitted, the tweets are saved to the execution directory
