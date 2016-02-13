@@ -23,6 +23,7 @@ import twitter4j.conf.ConfigurationBuilder
 import twitter4j.FilterQuery
 import java.text.SimpleDateFormat
 import java.util.Date
+import com.ifodor.CommandLineParser
 
 object TwitterScraperApp {
 
@@ -58,7 +59,7 @@ object TwitterScraperApp {
   def parseArgs(args: Array[String]): Option[Config] = {
     val defaultFile = "./" + new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date()) + "_tweets.txt"
     new CommandLineParser().parse(args,
-      Config(consumerKey = "", consumerSecret = "", accessToken = "", accessTokenSecret = "", file = defaultFile, searchTerms = List("twitter")))
+      Config(consumerKey = System.getenv(CommandLineParser.consumerKeySysProp), consumerSecret = System.getenv(CommandLineParser.consumerSecretSysPprop), accessToken = System.getenv(CommandLineParser.accessTokenSysProp), accessTokenSecret = System.getenv(CommandLineParser.accessTokenSecretSysProp), file = defaultFile, searchTerms = List("twitter")))
   }
 
 }
