@@ -1,6 +1,6 @@
 # twitter-scala-scraper
 
-This is a Scala application that you can use to read tweets off of Twitter. To build from source, you need Java 8 and Maven 3. In the cloned directory build with  `mvn clean install`. After the build finished you can execute twitter-scraper-jar-with-dependencies.jar form the target folder on the command line: 
+This is a Scala application that you can use to read tweets off of Twitter and store in JSON format. To build from source, you need Java 8 and Maven 3. In the cloned directory build with  `mvn clean install`. After the build finished you can execute twitter-scraper-jar-with-dependencies.jar form the target folder on the command line: 
 
 `cd target`
 
@@ -14,7 +14,7 @@ The program takes multiple arguments:
 - `--accessToken <value>`: Twitter access token. If omitted, it uses the system variable TWITTER_ACCESS_TOKEN.
 - `--accessTokenSecret <value>`: Twitter access token secret. If omitted, it uses the system variable TWITTER_ACCESS_TOKEN_SECRET
 
-Tweets are saved to a file whose name is derived from the search terms. If you restart the application with the same keywords, it will 
+If you restart the application with the file parameter, it will append tweets to the existing file. Tweets are saved in a JSON format and can be parsed using Twitter4J (http://twitter4j.org/en/index.html) or any other JSON parser.
 
 Example command line:
 `java -jar twitter-scraper-jar-with-dependencies.jar --file some_tweets.txt --searchTerms "big data" --consumerKey XYZ --consumerSecret XYZ --accessToken XYZ --accessTokenSecret XYZ`
