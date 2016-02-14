@@ -1,4 +1,4 @@
-package com.ifodor
+package com.ifodor.twitterscraper
 
 import java.io.FileWriter
 import java.nio.file.Paths
@@ -15,7 +15,7 @@ case class TweetMessage(status: String)
 class TweetFileWriter(filename: String) extends Actor with ActorLogging {
 
   val file = new File(filename)
-  file.getParentFile.mkdirs
+  new File(file.getAbsolutePath).getParentFile.mkdirs
   val fos = new FileOutputStream(file, true)
   val channel = fos.getChannel
 

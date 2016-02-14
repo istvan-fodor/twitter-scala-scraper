@@ -1,4 +1,4 @@
-package com.ifodor
+package com.ifodor.twitterscraper
 
 import scala.BigInt
 import scala.math.BigInt.int2bigInt

@@ -1,29 +1,18 @@
-package com.ifodor
+package com.ifodor.twitterscraper
 
-import java.util.concurrent.BlockingQueue
-import java.util.concurrent.LinkedBlockingQueue
-import scala.collection.JavaConverters.seqAsJavaListConverter
-import scala.concurrent.Await
-import scala.concurrent.duration.DurationInt
-import org.slf4j.LoggerFactory
-import com.twitter.hbc.ClientBuilder
-import com.twitter.hbc.core.Constants
-import com.twitter.hbc.core.HttpHosts
-import com.twitter.hbc.core.endpoint.StatusesFilterEndpoint
-import com.twitter.hbc.core.event.Event
-import com.twitter.hbc.core.processor.StringDelimitedProcessor
-import com.twitter.hbc.httpclient.auth.Authentication
-import com.twitter.hbc.httpclient.auth.OAuth1
-import akka.actor.ActorSystem
-import akka.actor.Props
-import akka.actor.actorRef2Scala
-import twitter4j.TwitterStreamFactory
-import twitter4j.conf.Configuration
-import twitter4j.conf.ConfigurationBuilder
-import twitter4j.FilterQuery
 import java.text.SimpleDateFormat
 import java.util.Date
-import com.ifodor.CommandLineParser
+
+import scala.concurrent.Await
+import scala.concurrent.duration.DurationInt
+
+import org.slf4j.LoggerFactory
+
+import akka.actor.ActorSystem
+import akka.actor.Props
+import twitter4j.FilterQuery
+import twitter4j.TwitterStreamFactory
+import twitter4j.conf.ConfigurationBuilder
 
 object TwitterScraperApp {
 
