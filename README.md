@@ -20,7 +20,7 @@ Usage
 After build run:
 
     cd target
-    java -jar twitter-scraper-jar-with-dependencies.jar
+    java -jar twitter-scraper-jar-with-dependencies.jar <arguments>
 
 The program takes multiple arguments:
 - `--file <file_name>`: target directory for tweets. If omitted, the tweets are saved to the execution directory
