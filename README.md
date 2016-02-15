@@ -11,9 +11,10 @@ Building
 * Java 8
 
 Check out and build: 
-  ```git clone https://github.com/istvan-fodor/twitter-scala-scraper.git
-  cd twitter-scala-scraper
-  mvn clean install```
+
+    git clone https://github.com/istvan-fodor/twitter-scala-scraper.git
+    cd twitter-scala-scraper
+    mvn clean install
 
 Usage
 -----
