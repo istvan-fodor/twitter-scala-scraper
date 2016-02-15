@@ -1,7 +1,7 @@
 Description
 -----------
 
-This is a Scala application that you can use to read tweets off of Twitter and store in JSON format. To run, you require Java 8.
+This is a Scala application that you can use to read tweets off of Twitter and store in a file in JSON format. To run, you require Java 8.
 
 Building
 --------
